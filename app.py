@@ -67,7 +67,7 @@ if st.button("Submit"):
         with st.spinner('Downloading and merging audio...'):
             try:
                 # Run your Component 1 script via subprocess
-                command = ["python", "102303658.py", singer_name, str(num_videos), str(duration), output_mp3]
+                command = [sys.executable, "102303658.py", singer_name, str(num_videos), str(duration), output_mp3]
                 subprocess.run(command, check=True)
                 
                 st.success("Mashup generated successfully! Zipping the file...")
@@ -97,3 +97,4 @@ if st.button("Submit"):
                 if os.path.exists(output_zip):
 
                     os.remove(output_zip)
+
