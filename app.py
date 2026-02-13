@@ -5,7 +5,7 @@ import zipfile
 import re
 import smtplib
 from email.message import EmailMessage
-
+import sys  # <--- ADD THIS LINE
 # --- HELPER FUNCTIONS ---
 
 def is_valid_email(email):
@@ -95,4 +95,5 @@ if st.button("Submit"):
                 if os.path.exists(output_mp3):
                     os.remove(output_mp3)
                 if os.path.exists(output_zip):
+
                     os.remove(output_zip)
