@@ -18,6 +18,7 @@ def download_videos(singer_name, num_videos):
         'outtmpl': 'downloads/%(id)s.%(ext)s',
         'noplaylist': True,
         'max_downloads': num_videos,
+        'extractor_args': {'youtube': {'client': ['android', 'ios']}},
     }
     
     try:
@@ -103,4 +104,5 @@ def main():
         shutil.rmtree('downloads')
 
 if __name__ == "__main__":
+
     main()
