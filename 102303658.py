@@ -18,7 +18,13 @@ def download_videos(singer_name, num_videos):
         'outtmpl': 'downloads/%(id)s.%(ext)s',
         'noplaylist': True,
         'max_downloads': num_videos,
+        # --- THE CLOUD SERVER BYPASS CONFIGURATION ---
+        'source_address': '0.0.0.0',  # Forces IPv4 routing (crucial for cloud datacenters)
+        'cachedir': False,  # Prevents stale tokens from triggering the 403 error
         'extractor_args': {'youtube': {'client': ['android', 'ios']}},
+        'http_headers': {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
     }
     
     try:
@@ -106,3 +112,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
